@@ -5,7 +5,7 @@ public abstract class Vehicle {
     private String model;
     private boolean isAvailable;
 
-    public Vehicle(String vehicleId, String model, boolean isAvailable) {
+    public Vehicle(String vehicleId, String model) {
         this.vehicleId = vehicleId;
         this.model = model;
         this.isAvailable = true;
