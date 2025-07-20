@@ -1,0 +1,20 @@
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Build output directory (default in IntelliJ)
+out/
+
+# Compiled Java classes
+*.class
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.bak
+*.~*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
