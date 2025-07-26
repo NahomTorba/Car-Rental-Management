@@ -1,4 +1,4 @@
-package abstracts;
+package main.java.project.abstracts;
 
 public abstract class Vehicle {
     private String vehicleId;

@@ -1,4 +1,4 @@
-package model;
+package main.java.project.model;
 
 public class Rental {
     private Car car;

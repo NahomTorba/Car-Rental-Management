@@ -1,7 +1,7 @@
-package model;
-import abstracts.Vehicle;
-import interfaces.Rentable;
-import interfaces.Returnable;
+package main.java.project.model;
+import main.java.project.abstracts.Vehicle;
+import main.java.project.interfaces.Rentable;
+import main.java.project.interfaces.Returnable;
 
 public class Car extends Vehicle implements Rentable, Returnable{
 
