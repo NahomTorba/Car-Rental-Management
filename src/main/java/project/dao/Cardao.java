@@ -87,4 +87,26 @@ public class cardao {
     }
 
     // Update car details
-    public void updateCar(Car car)
+    public void updateCar(Car car) throws SQLException {
+        String sql = "UPDATE cars SET model = ?, is_available = ? WHERE vehicle_id = ?";
+        try (Connection conn = dbconnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, car.getModel());
+            ps.setBoolean(2, car.isAvailable());
+            ps.setString(3, car.getVehicleId());
+            ps.executeUpdate();
+        }
+    }
+
+    // Delete a car by vehicle ID
+    public void deleteCar(String vehicleId) throws SQLException {
+        String sql = "DELETE FROM cars WHERE vehicle_id = ?";
+        try (Connection conn = dbconnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, vehicleId);
+            ps.executeUpdate();
+        }
+    }
+}
