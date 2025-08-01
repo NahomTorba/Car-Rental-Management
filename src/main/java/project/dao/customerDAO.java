@@ -1,17 +1,17 @@
-package dao;
+package main.java.project.dao;
 
-import model.Customer;
+import main.java.project.model.Customer;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class customerdao {
+public class customerDAO {
 
     // Add a new customer to the database
     public void addCustomer(Customer customer) throws SQLException {
         String sql = "INSERT INTO customers(customer_id, name) VALUES (?, ?)";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, customer.getCustomerId());
@@ -23,7 +23,7 @@ public class customerdao {
     // Retrieve a customer by their ID
     public Customer getCustomerById(String customerId) throws SQLException {
         String sql = "SELECT * FROM customers WHERE customer_id = ?";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, customerId);
@@ -42,7 +42,7 @@ public class customerdao {
         List<Customer> customers = new ArrayList<>();
         String sql = "SELECT * FROM customers";
 
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -58,7 +58,7 @@ public class customerdao {
     // Update customer details
     public void updateCustomer(Customer customer) throws SQLException {
         String sql = "UPDATE customers SET name = ? WHERE customer_id = ?";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, customer.getName());
@@ -70,7 +70,7 @@ public class customerdao {
     // Delete a customer by ID
     public void deleteCustomer(String customerId) throws SQLException {
         String sql = "DELETE FROM customers WHERE customer_id = ?";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, customerId);

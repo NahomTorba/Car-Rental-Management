@@ -3,7 +3,7 @@ package main.java.project.ui;
 import main.java.project.model.Car;
 import main.java.project.model.Customer;
 import main.java.project.model.Rental;
-import service.RentalService;
+import main.java.project.service.RentalService;
 import main.java.project.util.CarNotAvailableException;
 import main.java.project.util.CarNotFoundException;
 import main.java.project.util.CustomerNotFoundException;

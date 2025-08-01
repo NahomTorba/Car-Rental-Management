@@ -1,14 +1,14 @@
-package service;
+package main.java.project.service;
 
-import dao.CarDAO;
-import dao.CustomerDAO;
-import model.Car;
-import model.Customer;
-import model.Rental;
-import util.CarNotAvailableException;
-import util.CarNotFoundException;
-import util.CustomerNotFoundException;
-import util.FileLogger;
+import main.java.project.dao.CarDAO;
+import main.java.project.dao.customerDAO;
+import main.java.project.model.Car;
+import main.java.project.model.Customer;
+import main.java.project.model.Rental;
+import main.java.project.util.CarNotAvailableException;
+import main.java.project.util.CarNotFoundException;
+import main.java.project.util.CustomerNotFoundException;
+import main.java.project.util.FileLogger;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.List;
 
 public class RentalService {
     private CarDAO carDAO = new CarDAO();
-    private CustomerDAO customerDAO = new CustomerDAO();
+    private customerDAO customerDAO = new customerDAO();
 
     private List<Rental> rentals = new ArrayList<>();
 

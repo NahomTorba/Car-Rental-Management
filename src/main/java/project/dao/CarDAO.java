@@ -1,17 +1,17 @@
-package dao;
+package main.java.project.dao;
 
-import model.Car;
+import main.java.project.model.Car;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class cardao {
+public class CarDAO {
 
     // Add a new car to the database
     public void addCar(Car car) throws SQLException {
         String sql = "INSERT INTO cars(vehicle_id, model, is_available) VALUES (?, ?, ?)";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, car.getVehicleId());
@@ -24,7 +24,7 @@ public class cardao {
     // Retrieve a car by its vehicle ID
     public Car getCarById(String vehicleId) throws SQLException {
         String sql = "SELECT * FROM cars WHERE vehicle_id = ?";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, vehicleId);
@@ -47,7 +47,7 @@ public class cardao {
         List<Car> cars = new ArrayList<>();
         String sql = "SELECT * FROM cars";
 
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -67,7 +67,7 @@ public class cardao {
     // Mark a car as rented (set available to false)
     public void rentCar(String vehicleId) throws SQLException {
         String sql = "UPDATE cars SET is_available = 0 WHERE vehicle_id = ?";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, vehicleId);
@@ -78,7 +78,7 @@ public class cardao {
     // Mark a car as returned (set available to true)
     public void returnCar(String vehicleId) throws SQLException {
         String sql = "UPDATE cars SET is_available = 1 WHERE vehicle_id = ?";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, vehicleId);
@@ -89,7 +89,7 @@ public class cardao {
     // Update car details
     public void updateCar(Car car) throws SQLException {
         String sql = "UPDATE cars SET model = ?, is_available = ? WHERE vehicle_id = ?";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, car.getModel());
@@ -102,7 +102,7 @@ public class cardao {
     // Delete a car by vehicle ID
     public void deleteCar(String vehicleId) throws SQLException {
         String sql = "DELETE FROM cars WHERE vehicle_id = ?";
-        try (Connection conn = dbconnection.getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, vehicleId);
